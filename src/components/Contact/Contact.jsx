@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { fetchDeleteContacts } from "../../redux/contacts/contactsOps";
+import { fetchDeleteContacts } from "../../redux/contactsOps";
 import IconPerson from "../../assets/user.svg";
 import IconPhone from "../../assets/phone.svg";
 import css from "./Contact.module.css";

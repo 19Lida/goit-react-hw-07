@@ -31,7 +31,7 @@ import {
   fetchContacts,
   fetchAddContacts,
   fetchDeleteContacts,
-} from "./contactsOps";
+} from "../contactsOps";
 import { selectContacts, selectNameFilter } from "../selectors";
 const initialState = {
   items: [],
