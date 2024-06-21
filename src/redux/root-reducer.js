@@ -8,10 +8,11 @@ const rootReducer = combineReducers({
   contacts: contactsSlice,
   filter: filtersSlice,
 });
-const persistConfig = {
-  key: "root",
-  storage,
-  blacklist: ["filter"],
-};
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-export default persistedReducer;
+
+// const persistConfig = {
+//   key: "root",
+//   storage,
+//   blacklist: ["filter"],
+// };
+// const persistedReducer = persistReducer(persistConfig, rootReducer);
+export default rootReducer;

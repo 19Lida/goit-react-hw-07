@@ -16,6 +16,7 @@ export const fetchAddContacts = createAsyncThunk();
 "contacts/addContact",
   async (data, { rejectWithValue }) => {
     try {
+      console.log(data, "DAAAATATTAAA");
       const result = await api.addaContacts(data);
       return result;
     } catch ({ response }) {

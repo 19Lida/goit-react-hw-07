@@ -33,11 +33,10 @@ import {
   fetchDeleteContacts,
 } from "./contactsOps";
 const initialState = {
-  contacts: {
-    items: [],
-    loading: false,
-    error: null,
-  },
+  items: [],
+  loading: false,
+  error: null,
+
   filters: {
     name: "",
   },
@@ -45,6 +44,7 @@ const initialState = {
 const contactsSlice = createSlice({
   name: "contacts",
   initialState,
+
   extraReducers: (builder) => {
     builder
       .addCase(fetchContacts.pending, (store) => {
@@ -65,7 +65,10 @@ const contactsSlice = createSlice({
         store.loading = false;
         store.items.push(payload);
       })
-      .addCase(fetchAddContacts.rejected, (store, { payload }) => {})
+      .addCase(fetchAddContacts.rejected, (store, { payload }) => {
+        store.loading = false;
+        store.error = payload;
+      })
       .addCase(fetchDeleteContacts.pending, (store) => {
         store.loading = true;
       })
@@ -80,4 +83,6 @@ const contactsSlice = createSlice({
       });
   },
 });
-export default contactsSlice;
+
+export const { addContact, deleteContact } = contactsSlice.actions;
+export default contactsSlice.reducer;
