@@ -5,11 +5,15 @@ const contactsInstance = axios.create({
 export const getAllContacts = async () => {
   const { data } = await contactsInstance.get("/");
 
-  console.log("GEEEEETTTTTTTTTT");
-
   return data;
 };
-export const addaContacts = async (data) => {
+export const addContacts = async (data) => {
   const { data: result } = await contactsInstance.post("/", data);
   return result;
+};
+
+export const deleteContact = async (id) => {
+  const { data } = await contactsInstance.delete(`/${id}`);
+
+  return data;
 };

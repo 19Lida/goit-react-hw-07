@@ -12,20 +12,18 @@ export const fetchContacts = createAsyncThunk(
     }
   }
 );
-export const fetchAddContacts = createAsyncThunk();
-"contacts/addContact",
+export const fetchAddContacts = createAsyncThunk(
+  "contacts/addContact",
   async (data, { rejectWithValue }) => {
     try {
-      console.log(data, "DAAAATATTAAA");
-      const result = await api.addaContacts(data);
+      const result = await api.addContacts(data);
       return result;
     } catch ({ response }) {
       return rejectWithValue(response.data);
     }
-  };
-{
-  //   condition: (data, { getState }) => {};
-}
+  }
+);
+
 export const fetchDeleteContacts = createAsyncThunk(
   "contacts/deleteContact",
   async (id, { rejectWithValue }) => {
